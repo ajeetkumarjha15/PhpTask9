@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Task8.css">
+    <title>update Query</title>
+</head>
+<body>
+
+<div id="main">
+<div>
+<a href="#">HOME</a>
+<a href="Register.php">REGISTER</a>
+<a href="Login.php">LOGIN</a>
+<center>
+  <h1>Update Your Details</h1>
+  <?php while ($row = $result->fetch_assoc()) { ?>
+  <form id = "form" class = "form" action="#" method = "POST">
+
+    <label for="id">ID</label><br>
+    <input type="number" id="id" name="id" value ="<?php echo "$ID" ?>"><br><br>
+
+    <label for="fname">First Name</label><br>
+    <input type="text" id="fname" name="firstname" value ="<?php echo "$firstName" ?>" required><br><br>
+
+    <label for="lname">Last Name</label><br>
+    <input type="text" id="lname" name="lastname" value ="<?php echo "$lastName" ?>" required><br><br>
+
+    <label for="dob">Date Of Birth</label><br>
+    <input id="dob" type="date" value ="<?php echo "$dateOfBirth" ?>" name="bdate" required><br><br>
+
+    <label for="email">EMail</label><br>
+    <input type="email" id="email" name="email" value ="<?php echo "$email" ?>" required><br><br>
+
+    <label for="password">Password</label><br>
+    <input type="password" id="pwd" name="pwd" value ="<?php echo "$password" ?>" required><br><br>
+
+    <label for="mobile">Mobile No</label><br>
+    <input type="number" id="mobile" name="mobile" value ="<?php echo "$mobile" ?>" required><br><br>
+
+    <label for="gender">Gender</label><br>
+    <select id="gender" name="gender">
+      <option value="Male" 
+        <?php
+          if ($gender == "Male") {
+            echo "selected";
+          }
+        ?>
+      >Male</option>
+      <option value="Female" 
+      <?php
+          if ($gender == "Female") {
+            echo "selected";
+          }
+        ?>>Female</option>
+      <option value="Other" 
+      <?php
+          if ($gender == "Other") {
+            echo "selected";
+          }
+        ?>>Other</option>
+    </select><br><br>
+
+    <label for="country">Country</label><br>
+    <select id="country" name="country">
+      <option value="india">India</option>
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select><br><br>
+
+    <label for="city">City</label><br>
+    <input type="text" id="city" name="city" value ="<?php echo "$city" ?>" required><br><br>
+
+    <button type="submit" id="submit" name="submit" value="update">Update</button>
+   
+  </form>
+  <?php  } ?>
+</center>
+</div>
+<php ?>
+</body>
+</html>
